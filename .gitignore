@@ -20,3 +20,6 @@ build/
 
 # 生成物：golden 只在显式 --update-goldens 时重写
 test/**/failures/
+
+# —— WorkBuddy 工作区数据 ——
+.workbuddy/
