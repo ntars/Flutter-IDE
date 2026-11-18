@@ -1,0 +1,49 @@
+# 文本物料。方案 §8.1 的原始示例，逐字段保留。
+#
+# 一个物料目录只有这一份文件是「协议」，其余写的是它的 Dart 实现。
+# 协议先行、实现后补，是第三方能参与的前提。
+id: ntars.text
+version: 1.0.0
+# 对应真实 Widget 类名。生成器直接把它写进产物，所以必须与 Dart 侧一致。
+widget: Text
+# 无插槽 → 叶子物料，不接受子节点，也就没有布局权（方案 §5.1 第 2 条）。
+slots: []
+props:
+  # 内容：必填。文字是文本物料的全部意义，不给默认值——
+  # 给它一个默认值等于允许「空文本节点」存在，那种节点在界面上不可见、
+  # 在大纲里却占一行，是最难解释的状态。
+  value:
+    type: string
+    required: true
+    group: content
+  # 外观：指向字号令牌。写成 token-ref 而不是 double，
+  # 是为了禁止在这里硬编码 24 这类裸值。
+  style:
+    type: token-ref
+    group: appearance
+  # 行为：行数上限。默认 2 而不是不限制——
+  # 窄屏上一段不限行的长文本会把整页顶开。
+  maxLines:
+    type: int
+    min: 1
+    max: 20
+    default: 2
+    group: behavior
+  # 行为：溢出策略。超出 maxLines 时怎么处理。
+  overflow:
+    type: enum
+    values: [clip, ellipsis, fade]
+    default: ellipsis
+    group: behavior
+
+responsive:
+  # 叶子不处理布局，排布权归它所在的容器。
+  ownsLayout: false
+  # 窄于 80 逻辑像素时，这段话已经放不下三个字，应当折叠而不是继续压缩。
+  minWidth: 80
+
+a11y:
+  # 语义角色：读屏软件把它读成一段文字。
+  role: text
+  # identifier 取意图节点 id，写回时靠它定位。
+  identifierStrategy: auto

@@ -1,0 +1,22 @@
+name: fide_cli
+description: "Fide 命令行：脱离 IDE 跑校验与生成，供 CI 使用。"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.14.0
+resolution: workspace
+
+dependencies:
+  fide_core: ^0.1.0
+  fide_design: ^0.1.0
+  fide_material_sdk: ^0.1.0
+  args: ^2.7.0
+  path: ^1.9.1
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0
+
+executables:
+  fide: fide

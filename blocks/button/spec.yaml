@@ -1,0 +1,41 @@
+# 按钮物料。
+#
+# 与 text 的差别不只是多了 onTap：按钮有「重要性」这一维度（filled /
+# outlined / text），而重要性直接决定它窄屏折叠时的优先级顺序。
+# 所以 variant 归到 behavior 组，不是 appearance——它表达的是语义分量。
+id: ntars.button
+version: 1.0.0
+widget: FilledButton
+slots: []
+props:
+  # 按钮上的字。必填，理由同 text.value。
+  label:
+    type: string
+    required: true
+    group: content
+  # 重要性档位。默认 filled：
+  # 一个页面通常只有一个主行动，若默认成 text 会让人到处都选 filled。
+  variant:
+    type: enum
+    values: [filled, outlined, text]
+    default: filled
+    group: behavior
+  # 是否可用。禁用是状态不是样式，因此归 behavior。
+  enabled:
+    type: bool
+    default: true
+    group: behavior
+  # 圆角。走令牌。
+  radius:
+    type: token-ref
+    group: appearance
+
+responsive:
+  ownsLayout: false
+  # 小于 64 宽放不下两字按钮加内距；此时应折叠成图标或收进更多菜单。
+  minWidth: 64
+
+a11y:
+  # 语义角色是 button 而不是 text：读屏会播报「按钮」。
+  role: button
+  identifierStrategy: auto

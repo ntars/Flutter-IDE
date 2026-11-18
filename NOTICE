@@ -1,0 +1,38 @@
+NOTICE
+======
+
+This product includes software developed by ntars and contributors.
+Copyright (c) 2026 ntars and contributors
+
+Licensed under the Apache License, Version 2.0 (the "License") and the MIT
+License. 分层说明见 LICENSING.md；两种许可的全文见 LICENSE 与 LICENSE-MIT。
+
+第三方组件
+==========
+
+本仓库骨架阶段直接依赖的第三方包，全部为宽松许可，与 Apache-2.0 / MIT 兼容：
+
+| 包 | 用途 | 许可 |
+|---|---|---|
+| analyzer | Dart AST 解析与区间定位（ast_writer 依赖） | BSD-3-Clause |
+| vm_service | VM Service 客户端（点选与热重载） | BSD-3-Clause |
+| yaml | intent / delta / spec 的 YAML 解析 | MIT |
+| path | 路径拼接 | BSD-3-Clause |
+| args | CLI 参数解析 | BSD-3-Clause |
+| flutter / flutter_test | 桌面端界面（ide_app） | BSD-3-Clause |
+| flutter_lints / lints | 静态检查规则集 | BSD-3-Clause |
+| test | 内核单元测试 | BSD-3-Clause |
+
+BSD-3-Clause 与本仓库的两种许可双向兼容，不触发 copyleft。
+
+兼容性规则
+==========
+
+**禁止引入 GPL / LGPL / AGPL / MPL 组件。** 宽松许可无法反向吸收 copyleft，
+一旦引入，整个项目将被要求以该 copyleft 许可分发。引入新依赖前先核对本表，
+并在 PR 里说明新依赖的许可。
+
+生成代码豁免
+============
+
+用户通过 Fide 生成的全部代码，版权归用户所有，不受本仓库任何许可约束。

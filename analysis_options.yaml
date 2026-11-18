@@ -1,0 +1,29 @@
+# 全仓共用的静态检查基线。子包各自 include 本文件，只追加自己需要的规则。
+#
+# 三条与「方案 §7.2」直接相关：生成物与手写物必须过同一套格式与检查，
+# 否则 diff 噪声会从 lint 层重新长出来。
+include: package:lints/recommended.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - "**/*.g.dart"
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+linter:
+  rules:
+    # 样式对象在编译期确定，避免每帧重建。
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    # 公开 API 必须有返回类型，内核要被 CLI / IDE 两种宿主调用，签名不能靠推断。
+    always_declare_return_types: true
+    # 单实现类用 abstract interface 而不是 abstract class，便于第三方物料实现。
+    prefer_relative_imports: false
+
+# 说明：unused_import / unused_local_variable 是 analyzer 内建诊断，不是 lint
+# 规则，写进 linter.rules 会被报「未识别的规则」。它们默认开启，无需配置。
+# 这里记一笔，免得下次又试着加一遍。

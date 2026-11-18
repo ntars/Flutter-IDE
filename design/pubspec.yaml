@@ -1,0 +1,12 @@
+name: fide_design
+description: "Fide 设计令牌与断点策略表。纯 Dart，不依赖 Flutter，内核与 CLI 可直接读取。"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.14.0
+resolution: workspace
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

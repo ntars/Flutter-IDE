@@ -1,0 +1,28 @@
+name: fide_app
+description: "Fide 桌面 IDE 外壳：画布、大纲、属性、冲突、同步率五个面板。"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.14.0
+  flutter: ">=3.50.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # UI 层用 flutter/material 而非拆出来的 material_ui 包：
+  # 生态文档与示例全部按前者写，新贡献者上手零认知成本。
+  # 代价是与上游的拆分方向逆行，若将来 material 从 SDK 里彻底移除，
+  # 只需把 import 换成 package:material_ui/material_ui.dart，改动面是集中的。
+  fide_core: ^0.1.0
+  fide_design: ^0.1.0
+  fide_material_sdk: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,17 @@
+name: fide_material_sdk
+description: "Fide 物料协议与 SDK：第三方可写物料而不改引擎。"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.14.0
+resolution: workspace
+
+dependencies:
+  fide_design: ^0.1.0
+  yaml: ^3.1.4
+  path: ^1.9.1
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

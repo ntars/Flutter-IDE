@@ -1,0 +1,75 @@
+# 意图大纲示例。方案 §5.1 的原文示例，加上能让校验器全部通过的完整字段。
+#
+# 这份文件是**唯一真源**：导航、路由、语义树、面包屑、骨架屏都从它派生。
+# 它住在项目的 design/ 下，进 git，可以被 review——不在任何平台的数据库里。
+version: 1
+
+page:
+  id: home
+  route: /
+  priority: 1
+  role: landing
+
+  sections:
+    # 容器：排布权归它，所以可以有 layout。
+    - id: hero
+      kind: container
+      foldTo: none
+      priority: 1
+      layout:
+        dir: column
+        gap: 16
+        # span 是列数不是百分比：compact 满 4 列、medium 满 8 列、expanded 满 12 列。
+        span: { compact: 4, medium: 8, expanded: 12 }
+      children:
+        # 叶子：只有身份，没有排布权。注意它没有 layout 键——
+        # 加上去校验器会直接拒绝（方案 §5.1 第 2 条）。
+        - id: hero.title
+          kind: leaf
+          widget: ntars.text
+          priority: 1
+          # foldTo 必填。这里「永不折叠」是刻意的：主标题在窄屏也只换行不消失。
+          foldTo: none
+          props:
+            value: 欢迎回来
+            style: display/medium
+
+        # 次要信息：priority 3 + foldTo: overflow 表示窄屏时收进「更多」。
+        # 不填 foldTo 会报错——折叠不等于删除，去哪必须说清。
+        - id: hero.meta
+          kind: leaf
+          widget: ntars.text
+          priority: 3
+          foldTo: overflow
+          props:
+            value: 上次登录 3 天前
+            style: body/small
+
+        # 主行动。variant 归 behavior 组：它表达语义分量，不是外观。
+        - id: hero.cta
+          kind: leaf
+          widget: ntars.button
+          priority: 1
+          foldTo: none
+          props:
+            label: 继续
+            variant: filled
+
+    # 第二个 section：验证「同一份声明派生多端」在多个区块上成立。
+    - id: features
+      kind: container
+      foldTo: collapse
+      priority: 2
+      layout:
+        dir: row
+        gap: 12
+        span: { compact: 4, medium: 8, expanded: 12 }
+      children:
+        - id: features.intro
+          kind: leaf
+          widget: ntars.text
+          priority: 2
+          foldTo: collapse
+          props:
+            value: 三件事说明这个工具在做什么
+            style: title/small

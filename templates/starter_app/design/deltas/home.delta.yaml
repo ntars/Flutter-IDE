@@ -1,0 +1,26 @@
+# 覆盖层示例。方案 §5.3 的原文示例结构。
+#
+# 这里只记**差异**，不复制整页。所以它很小，且改动时 git diff 只有一行。
+#
+# 合成公式：产物 = 生成基线(base) + 覆盖层(delta)
+#   base 每次可重算、随时可丢；delta 永久保留。
+#   二者叠加天然等于「既跟上了上游变更，又保住了我的微调」——
+#   这就是不需要「同步按钮」的原因。
+version: 1
+page: home
+
+overrides:
+  # hero.title 在不同断点下各有一个字号。
+  hero.title:
+    compact:
+      # 路径写法：props.<属性名>。字号令牌在 compact 档换成小一号。
+      props.style: display/small
+    expanded:
+      props.style: display/medium
+
+  # 容器也可以在某个断点下改排布方向。
+  # 这是覆盖层能表达「手机竖排、桌面横排」的地方，
+  # 而组件代码里写的是 LayoutBuilder，不是屏幕宽度判断。
+  hero:
+    expanded:
+      layout.dir: row

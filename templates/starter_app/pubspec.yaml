@@ -1,0 +1,19 @@
+# 模板项目（MIT）。这是「删掉 IDE 之后还能 flutter run」的样板：
+# 目录结构与真实 Flutter 项目完全一致，没有任何 Fide 私有文件。
+name: fide_starter
+description: "Fide 起始模板：删掉 IDE 也能正常构建。"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.14.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

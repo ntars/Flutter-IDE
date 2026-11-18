@@ -1,0 +1,22 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# 工作区只有根 pubspec.lock 入库：锁文件是「同输入同输出」的前提，
+# 方案 §7.5 第 3 条要求生成结果可复现，依赖版本必须锁死。
+# 子包不生成自己的 lock，因此这里不需要通配。
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+*.swp
+.DS_Store
+
+# 生成物：golden 只在显式 --update-goldens 时重写
+test/**/failures/

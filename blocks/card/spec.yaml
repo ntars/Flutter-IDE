@@ -1,0 +1,39 @@
+# 卡片物料。
+#
+# 这是三个样板物料里唯一的**容器**：有插槽，能被放子节点，因此它可以在
+# 意图大纲里声明 layout（方案 §5.1 第 2 条的例外面）。
+#
+# 命名上叫 card 而不是 container：产品语义更清楚，且避免与布局原语混淆。
+id: ntars.card
+version: 1.0.0
+widget: Card
+# 只有一个默认插槽。多插槽（header / body / footer）等真实需求出现再加——
+# 提前设计一套没人用的插槽体系，只会让生成器多一堆空分支。
+slots: [child]
+props:
+  # 卡片是否可点。可点卡片在 a11y 上是 button 而非 group，
+  # 这条由 a11y.role 与 enabled 共同决定，codegen 负责合并。
+  interactive:
+    type: bool
+    default: false
+    group: behavior
+  # 内边距。走间距令牌。
+  padding:
+    type: token-ref
+    group: appearance
+  # 圆角。走圆角令牌。
+  radius:
+    type: token-ref
+    group: appearance
+
+responsive:
+  # 容器**不**自己处理布局：它接受外部 layout 声明。
+  # 与 AppBar 那类「自带布局」的物料相反。
+  ownsLayout: false
+  # 窄于 240 时卡片里放不下两栏内容，应改为纵向。
+  minWidth: 240
+
+a11y:
+  # group：读屏把内部内容当成一组，而不是逐个播报。
+  role: group
+  identifierStrategy: auto

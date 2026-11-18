@@ -1,0 +1,17 @@
+# 工作区根。各包共享一份 pubspec.lock，`dart pub get` 一次解析全部依赖。
+#
+# 用 Dart 3.6 起的原生 workspace 而不是 melos：4 个包不需要版本发布脚本，
+# 多引一个全局工具只会让「clone 下来就能跑」多一步。
+name: flutter_ide_workspace
+publish_to: 'none'
+
+environment:
+  # 3.14 是本机与 CI 的基线。所有子包用 `resolution: workspace` 加入本工作区。
+  sdk: ^3.14.0
+
+workspace:
+  - design
+  - packages/ide_core
+  - packages/material_sdk
+  - packages/cli
+  - packages/ide_app
