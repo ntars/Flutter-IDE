@@ -10,6 +10,16 @@ Copyright (c) 2026 ntars and contributors
 
 ---
 
+## 零、默认归属（先看这条）
+
+**下表未列出的、由本项目编写的文件，一律适用根 [`LICENSE`](./LICENSE)，即 Apache-2.0。**
+
+这条兜底规则是必须的。只列目录而不写默认值，克隆者面对根级 `pubspec.yaml`、
+`pubspec.lock`、`analysis_options.yaml`、`.gitignore` 就无从判断归属，法律上等于
+没有授权。需要相反结果的路径，必须显式写进下表——**不存在「靠猜」的路径**。
+
+第三方依赖与用户生成代码不适用本兜底条款，见第二、四节。
+
 ## 一、分层映射
 
 | 路径 | 许可 | 说明 |
@@ -23,6 +33,8 @@ Copyright (c) 2026 ntars and contributors
 | `templates/` | **MIT** | 模板。用户拿去当生产起点，最少义务 |
 | `docs/` | **MIT** | 文档 |
 | `.github/` | **MIT** | CI 与组织级配置 |
+| 根级 `README.md` `README_EN.md` `CONTRIBUTING.md` `SECURITY.md` `TRADEMARK.md` `LICENSING.md` `NOTICE` | **MIT** | 说明文档 |
+| 根级 `pubspec.yaml` `pubspec.lock` `analysis_options.yaml` `.gitignore` | **MIT** | 工作区工程配置 |
 
 **内核与界面为什么分开授权**：内核（Apache-2.0）比 MIT 多给两样东西——
 明示专利授权（第 3 条）与 NOTICE 保留义务（第 4 条 d 项）。物料作者最在意

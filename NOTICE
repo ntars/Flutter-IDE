@@ -5,7 +5,11 @@ This product includes software developed by ntars and contributors.
 Copyright (c) 2026 ntars and contributors
 
 Licensed under the Apache License, Version 2.0 (the "License") and the MIT
-License. 分层说明见 LICENSING.md；两种许可的全文见 LICENSE 与 LICENSE-MIT。
+License. 分层说明见 [LICENSING.md](LICENSING.md)；两种许可的全文见根目录
+[LICENSE](LICENSE)（Apache-2.0）与 [LICENSE-MIT](LICENSE-MIT)（MIT）。
+本仓库没有 LICENSES/ 目录。
+
+默认归属：LICENSING.md 表格未列出的本项目自研文件，一律适用 Apache-2.0。
 
 第三方组件
 ==========

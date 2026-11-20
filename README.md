@@ -395,6 +395,10 @@ Copyright © 2026 ntars and contributors. Licensed under Apache-2.0 / MIT.
 |---|---|
 | `packages/ide_core/` `material_sdk/` `cli/` `design/` `blocks/` | Apache-2.0 |
 | `packages/ide_app/` `templates/` `docs/` `.github/` | MIT |
+| 根级 `README.md` `CONTRIBUTING.md` `SECURITY.md` `TRADEMARK.md` 等文档 | MIT |
+| 根级 `pubspec.yaml` `analysis_options.yaml` 等工作区配置 | MIT |
+
+**默认归属**：上表未列出的本项目自研文件，一律适用根 `LICENSE`（Apache-2.0）。逐路径路由与再分发须保留的文件清单见 [LICENSING.md](LICENSING.md)。
 
 **为什么内核用 Apache-2.0**：比 MIT 多明示专利授权（第 3 条）与 NOTICE 保留义务（第 4 条 d 项）。物料作者最在意专利风险，这一条把它拆掉。
 
